@@ -1,0 +1,34 @@
+@import "src/app/styles/variables";
+@import "src/app/styles/mixins";
+
+.user-card {
+  display: flex;
+  padding: 8px 12px;
+  border: 1px solid $neutral5;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: $white;
+    cursor: pointer;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+
+    &-block {
+      display: flex;
+      align-items: center;
+      column-gap: 4px;
+    }
+  }
+
+  &__label {
+    @include body-regular();
+  }
+
+  &__text {
+    @include description-regular($neutral3);
+  }
+}

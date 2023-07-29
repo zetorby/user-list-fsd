@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { UsersList } from '../../widgets/users-list';
+
 export const LandingPage = () => {
   return (
-    <div>
-      Landing page
+    <div className="container">
+      <UsersList />
     </div>
-  )
-}
+  );
+};

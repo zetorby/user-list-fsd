@@ -28,3 +28,9 @@ body {
   background-color: $neutral0;
   @include scrollSmall();
 }
+
+.container {
+  padding: 24px 36px;
+  margin: 0 auto;
+  max-width: 800px;
+}
