@@ -1,0 +1,16 @@
+@import "src/app/styles/variables";
+@import "src/app/styles/mixins";
+
+.user-info-block {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+
+  &__label {
+    @include body-regular();
+  }
+
+  &__text {
+    @include description-regular($neutral3);
+  }
+}

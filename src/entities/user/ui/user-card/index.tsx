@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { User } from '../../model';
+import modalService from '../../../../shared/services/modalService';
+import { UserInfoBlockMemo } from '../../../../shared/ui';
 
 import './styles.scss';
 
@@ -8,24 +10,23 @@ type Props = {
   data: User;
 };
 
-export const UserCard = ({ data }: Props) => {
+const UserCard = ({ data }: Props) => {
+  const onClick = () => {
+    modalService.openUserModal({
+      data,
+    });
+  };
+
   return (
-    <div className="user-card">
+    <div role="button" className="user-card" onClick={onClick}>
       <div className="user-card__info">
-        <div className="user-card__info-block">
-          <span className="user-card__label">Username:</span>
-          <span className="user-card__text">{data.username}</span>
-        </div>
-        <div className="user-card__info-block">
-          <span className="user-card__label">Name:</span>
-          <span className="user-card__text">{data.name}</span>
-        </div>
-        <div className="user-card__info-block">
-          <span className="user-card__label">Email:</span>
-          <span className="user-card__text">{data.email}</span>
-        </div>
+        <UserInfoBlockMemo label="Username:" text={data.username} />
+        <UserInfoBlockMemo label="Name:" text={data.name} />
+        <UserInfoBlockMemo label="Email:" text={data.email} />
       </div>
       <div className="user-card__actions"></div>
     </div>
   );
 };
+
+export const UserCardMemo = memo(UserCard);

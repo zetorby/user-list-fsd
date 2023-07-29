@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { UserCard, userModel } from '../../entities/user';
+import { UserCardMemo, userModel } from '../../entities/user';
 import { useAppSelector } from '../../shared/store/hooks';
 import { User } from '../../entities/user/model';
 
@@ -18,5 +18,5 @@ export const UsersList = () => {
     void getUserList();
   }, []);
 
-  return <div className="user-list">{list?.map((item: User) => <UserCard key={item.id} data={item} />)}</div>;
+  return <div className="user-list">{list?.map((item: User) => <UserCardMemo key={item.id} data={item} />)}</div>;
 };
