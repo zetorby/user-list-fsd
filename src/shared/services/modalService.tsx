@@ -50,9 +50,7 @@ const modalService = {
   },
   openUserModal: (props: any) => {
     return modalService.open({
-      width: 1085,
       component: UserModal,
-      className: 'user-modal',
       props,
     });
   },

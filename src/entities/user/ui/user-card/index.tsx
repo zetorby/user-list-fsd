@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, ReactNode, SyntheticEvent, useRef } from 'react';
 
 import { User } from '../../model';
 import modalService from '../../../../shared/services/modalService';
@@ -8,13 +8,19 @@ import './styles.scss';
 
 type Props = {
   data: User;
+  actions?: ReactNode[];
 };
 
-const UserCard = ({ data }: Props) => {
-  const onClick = () => {
-    modalService.openUserModal({
-      data,
-    });
+const UserCard = ({ data, actions }: Props) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const onClick = (e: SyntheticEvent) => {
+    const target = e.target as HTMLDivElement;
+    if (ref.current && !ref.current.contains(target)) {
+      modalService.openUserModal({
+        data,
+      });
+    }
   };
 
   return (
@@ -24,7 +30,9 @@ const UserCard = ({ data }: Props) => {
         <UserInfoBlockMemo label="Name:" text={data.name} />
         <UserInfoBlockMemo label="Email:" text={data.email} />
       </div>
-      <div className="user-card__actions"></div>
+      <div ref={ref} className="user-card__actions">
+        {actions}
+      </div>
     </div>
   );
 };

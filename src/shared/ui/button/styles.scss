@@ -1,0 +1,21 @@
+@import "src/app/styles/variables";
+
+.button {
+  &--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
+    padding: 0;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $neutral0;
+      border: 1px solid $neutral1;
+    }
+  }
+}

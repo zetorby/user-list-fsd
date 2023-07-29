@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { UserCardMemo, userModel } from '../../entities/user';
 import { useAppSelector } from '../../shared/store/hooks';
 import { User } from '../../entities/user/model';
+import { RemoveUserButton } from '../../features/remove-user/ui/remove-user-button';
 
 import './styles.scss';
 
@@ -18,5 +19,11 @@ export const UsersList = () => {
     void getUserList();
   }, []);
 
-  return <div className="user-list">{list?.map((item: User) => <UserCardMemo key={item.id} data={item} />)}</div>;
+  return (
+    <div className="user-list">
+      {list?.map((item: User) => (
+        <UserCardMemo key={item.id} data={item} actions={[<RemoveUserButton userId={item.id} key="remove" />]} />
+      ))}
+    </div>
+  );
 };
