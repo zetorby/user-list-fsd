@@ -1,0 +1,63 @@
+@import "variables";
+
+@mixin scrollHidden() {
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+@mixin scrollSmall() {
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 4px !important;
+    height: 8px !important;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: $neutral1;
+
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: $neutral5;
+  }
+}
+
+@mixin h5-medium($color: $neutral5) {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: $color;
+  margin: 0;
+}
+
+@mixin h5-regular($color: $neutral5) {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: $color;
+  margin: 0;
+}
+
+@mixin body-regular($color: $neutral5) {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin footnote($color: $neutral3) {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: $color;
+}
+
+@mixin description-regular($color: $neutral5) {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color;
+}
