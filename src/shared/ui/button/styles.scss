@@ -1,6 +1,22 @@
 @import "src/app/styles/variables";
 
 .button {
+  &--default {
+    height: 40px;
+    padding: 6px 15px;
+    background-color: $white;
+    border: 1px solid $neutral5;
+    border-radius: 8px;
+    color: $neutral5;
+
+    &:hover {
+      cursor: pointer;
+      color: $neutral3;
+      border-color: $neutral3;
+    }
+  }
+
+
   &--icon {
     display: flex;
     align-items: center;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Button } from '../../../../shared/ui';
-import { useAppDispatch } from '../../../../shared/store/hooks';
-import { UserTypes } from '../../../../entities/user/model';
+import { Button } from '../../../shared/ui';
+import { useAppDispatch } from '../../../shared/store/hooks.ts';
+import { UserTypes } from '../../../entities/user/model';
 
 type Props = {
   userId: number;

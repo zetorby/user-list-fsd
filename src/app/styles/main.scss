@@ -35,3 +35,13 @@ body {
   margin: 0 auto;
   max-width: 800px;
 }
+
+//SHORT
+.mb {
+  &-0 {
+    margin-bottom: 0;
+  }
+  &-4 {
+    margin-bottom: 16px;
+  }
+}

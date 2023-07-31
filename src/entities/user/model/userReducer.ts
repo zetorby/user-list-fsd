@@ -5,6 +5,7 @@ const initialState: UserInitialState = {
   isLoading: false,
   list: null,
   snapshot: null,
+  search: '',
 };
 
 export default function (state = initialState, action: Action<UserTypes>) {
@@ -24,6 +25,17 @@ export default function (state = initialState, action: Action<UserTypes>) {
       return {
         ...state,
         list: state.list?.filter((user) => user.id !== action.payload),
+      };
+    case UserTypes.SET_SEARCH_TEXT:
+      return {
+        ...state,
+        search: action.payload,
+      };
+    case UserTypes.CLEAR_FILTER:
+      return {
+        ...state,
+        search: '',
+        list: state.snapshot,
       };
     default:
       return state;

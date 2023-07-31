@@ -13,7 +13,7 @@ type Props = {
 
 export const Button = ({ className, variant = 'default', children, ...props }: Props) => {
   const classNames = cx('button', className, {
-    'button--icon': variant === 'icon',
+    [`button--${variant}`]: variant,
   });
   return (
     <button {...props} className={classNames}>

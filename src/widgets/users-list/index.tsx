@@ -3,15 +3,14 @@ import React, { useEffect } from 'react';
 import { UserCardMemo, userModel } from '../../entities/user';
 import { useAppSelector } from '../../shared/store/hooks';
 import { User } from '../../entities/user/model';
-import { RemoveUserButton } from '../../features/remove-user/ui/remove-user-button';
+import { RemoveUserButton } from '../../features/remove-user-button/ui';
+import { getFilteredUserList } from '../../features/filter-input';
 
 import './styles.scss';
 
 export const UsersList = () => {
-  const loading = useAppSelector((state) => state.user.isLoading);
   const list = useAppSelector((state) => state.user.list);
-
-  console.log(loading, list);
+  const search = useAppSelector((state) => state.user.search);
 
   const { getUserList } = userModel;
 
@@ -21,7 +20,7 @@ export const UsersList = () => {
 
   return (
     <div className="user-list">
-      {list?.map((item: User) => (
+      {getFilteredUserList(search, list)?.map((item: User) => (
         <UserCardMemo key={item.id} data={item} actions={[<RemoveUserButton userId={item.id} key="remove" />]} />
       ))}
     </div>
