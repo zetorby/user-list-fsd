@@ -4,6 +4,8 @@ import { User } from '../../model';
 import modalService from '../../../../shared/services/modalService';
 import { UserInfoBlockMemo } from '../../../../shared/ui';
 import { useHover } from '../../../../shared/hooks';
+import { HighlightedText } from '../highlight-text';
+import { useAppSelector } from '../../../../shared/store/hooks';
 
 import './styles.scss';
 
@@ -15,6 +17,7 @@ type Props = {
 const UserCard = ({ data, actions }: Props) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [cardRef, isHover] = useHover<HTMLDivElement>();
+  const search = useAppSelector((state) => state.user.search);
 
   const onClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLDivElement;
@@ -28,9 +31,9 @@ const UserCard = ({ data, actions }: Props) => {
   return (
     <div ref={cardRef} role="button" className="user-card" onClick={onClick}>
       <div className="user-card__info">
-        <UserInfoBlockMemo label="Username:" text={data.username} />
-        <UserInfoBlockMemo label="Name:" text={data.name} />
-        <UserInfoBlockMemo label="Email:" text={data.email} />
+        <UserInfoBlockMemo label="Username:" text={<HighlightedText text={data.username} highlight={search} />} />
+        <UserInfoBlockMemo label="Name:" text={<HighlightedText text={data.name} highlight={search} />} />
+        <UserInfoBlockMemo label="Email:" text={<HighlightedText text={data.email} highlight={search} />} />
       </div>
       {isHover ? (
         <div ref={ref} className="user-card__actions">

@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
+import React, { memo, ReactNode } from 'react';
 
 import './styles.scss';
 
 type Props = {
   label?: string;
-  text?: string;
+  text?: ReactNode;
 };
 
 const UserInfoBlock = ({ label, text }: Props) => {
