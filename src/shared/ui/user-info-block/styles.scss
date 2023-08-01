@@ -6,11 +6,18 @@
   align-items: center;
   column-gap: 4px;
 
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   &__label {
     @include body-regular();
+    align-self: flex-start;
   }
 
   &__text {
     @include description-regular($neutral3);
+    word-break: break-word;
   }
 }

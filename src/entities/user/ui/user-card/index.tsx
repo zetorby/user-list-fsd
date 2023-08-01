@@ -35,11 +35,9 @@ const UserCard = ({ data, actions }: Props) => {
         <UserInfoBlockMemo label="Name:" text={<HighlightedText text={data.name} highlight={search} />} />
         <UserInfoBlockMemo label="Email:" text={<HighlightedText text={data.email} highlight={search} />} />
       </div>
-      {isHover ? (
-        <div ref={ref} className="user-card__actions">
-          {actions}
-        </div>
-      ) : null}
+      <div ref={ref} className="user-card__actions">
+        {isHover ? actions : null}
+      </div>
     </div>
   );
 };

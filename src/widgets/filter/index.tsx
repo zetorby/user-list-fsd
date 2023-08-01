@@ -2,7 +2,7 @@ import React from 'react';
 
 import { cx } from '../../shared/utils';
 import { FilterInput } from '../../features/filter-input';
-import { ClearFilterButton } from '../../features/clear-filter-button/ui';
+import { ResetFilterButton } from '../../features/reset-filter-button/ui';
 
 import './styles.scss';
 
@@ -15,7 +15,7 @@ export const UserListFilter = ({ className }: Props) => {
   return (
     <div className={classNames}>
       <FilterInput />
-      <ClearFilterButton />
+      <ResetFilterButton />
     </div>
   );
 };
